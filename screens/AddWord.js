@@ -16,11 +16,10 @@ function AddWord({ switchScreen, setWords }) {
     }
 
     setLoading(true);
-    const controller = new AbortController();
 
     const timer = setTimeout(async () => {
       try {
-        const result = await getWordInfo(searchTerm, controller.signal);
+        const result = await getWordInfo(searchTerm);
         setWordData(result);
       } catch (error) {
         setWordData(null);
@@ -31,7 +30,6 @@ function AddWord({ switchScreen, setWords }) {
 
     return () => {
       clearTimeout(timer);
-      controller.abort();
     };
   }, [searchTerm]);
 

@@ -1,9 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "../constants";
 
-export async function getWordInfo(word, signal) {
+export async function getWordInfo(word) {
   try {
-    const response = await axios.get(`${BASE_URL}/${word}`, { signal });
+    const response = await axios.get(`${BASE_URL}/${word}`);
     const wordInfo = response.data[0];
     
     return {
@@ -14,9 +14,6 @@ export async function getWordInfo(word, signal) {
       meaning: wordInfo.meanings[0]?.definitions[0].definition,
     };
   } catch (error) {
-    if (axios.isCancel(error)) {
-      console.log('Request canceled', error.message);
-    }
     return null;
   }
 }
