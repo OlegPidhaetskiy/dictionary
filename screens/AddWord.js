@@ -12,6 +12,7 @@ function AddWord({ switchScreen, setWords }) {
   useEffect(() => {
     if (!searchTerm.trim()) {
       setWordData(null);
+      setLoading(false);
       return;
     }
 
@@ -28,9 +29,7 @@ function AddWord({ switchScreen, setWords }) {
       }
     }, 1000);
 
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, [searchTerm]);
 
   const handleAdd = () => {

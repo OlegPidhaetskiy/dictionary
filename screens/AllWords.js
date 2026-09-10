@@ -41,18 +41,17 @@ function AllWords({ words, switchScreen, setWords }) {
         </TouchableOpacity>
       </View>
 
-      {words.length === 0 ? (
-        <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>No words yet</Text>
-        </View>
-      ) : (
-        <FlatList
-          data={words}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={renderItem}
-          contentContainerStyle={styles.listContainer}
-        />
-      )}
+      <FlatList
+        data={words}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={renderItem}
+        contentContainerStyle={styles.listContainer}
+        ListEmptyComponent={
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>No words yet</Text>
+          </View>
+        }
+      />
     </View>
   );
 }
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, marginBottom: 15 },
   headerTitle: { fontSize: 24, fontWeight: 'bold' },
   addButton: { backgroundColor: '#007AFF', borderRadius: 20, padding: 5 },
-  emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 100 },
   emptyText: { fontSize: 18, color: '#8e8e93' },
   listContainer: { paddingHorizontal: 20 },
   wordCard: { backgroundColor: '#fff', borderRadius: 10, padding: 15, marginBottom: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', elevation: 2 },
