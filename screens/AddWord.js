@@ -54,7 +54,7 @@ function AddWord({ switchScreen, setWords }) {
 
       <TextInput
         style={styles.input}
-        placeholder="type here..."
+        placeholder="type here.."
         value={searchTerm}
         onChangeText={setSearchTerm}
         autoCapitalize="none"

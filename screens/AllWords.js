@@ -17,11 +17,14 @@ function AllWords({ words, switchScreen, setWords }) {
         <Text style={styles.wordDefinition}>{item.meaning || item.explanation}</Text>
       </View>
       <View style={styles.actions}>
-        {item.audio && (
-          <TouchableOpacity onPress={() => playSound(item.audio)} style={styles.iconButton}>
-            <Ionicons name="play-outline" size={24} color="#007AFF" />
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity 
+          onPress={() => {
+            if (item.audio) playSound(item.audio);
+          }} 
+          style={styles.iconButton}
+        >
+          <Ionicons name="play-outline" size={24} color={item.audio ? "#007AFF" : "#ccc"} />
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => deleteWord(item)} style={styles.iconButton}>
           <Ionicons name="trash-outline" size={24} color="#FF3B30" />
         </TouchableOpacity>
