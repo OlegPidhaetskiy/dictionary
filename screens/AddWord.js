@@ -66,15 +66,15 @@ function AddWord({ switchScreen, setWords }) {
         <View style={styles.resultCard}>
           <View style={styles.resultHeader}>
             <Text style={styles.foundWord}>{wordData.word}</Text>
-            {wordData.sound && (
-              <TouchableOpacity onPress={() => playSound(wordData.sound)}>
+            {wordData.audio && (
+              <TouchableOpacity onPress={() => playSound(wordData.audio)}>
                 <Ionicons name="volume-medium-outline" size={24} color="#007AFF" />
               </TouchableOpacity>
             )}
           </View>
-          {wordData.phonetic && <Text style={styles.phonetic}>{wordData.phonetic}</Text>}
+          {wordData.phonetics && <Text style={styles.phonetic}>{wordData.phonetics}</Text>}
           {wordData.partOfSpeech && <Text style={styles.pos}>{wordData.partOfSpeech}</Text>}
-          <Text style={styles.definition}>{wordData.explanation || wordData.definition}</Text>
+          <Text style={styles.definition}>{wordData.meaning || wordData.explanation}</Text>
 
           <TouchableOpacity style={styles.addButton} onPress={handleAdd}>
             <Text style={styles.addButtonText}>Add</Text>

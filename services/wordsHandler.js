@@ -3,7 +3,7 @@ import { BASE_URL } from "../constants";
 
 export async function getWordInfo(word, signal) {
   try {
-    const response = await axios.get(`${BASE_URL}${word}`, { signal });
+    const response = await axios.get(`${BASE_URL}/${word}`, { signal });
     const wordInfo = response.data[0];
     
     return {

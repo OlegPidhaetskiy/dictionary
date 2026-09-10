@@ -12,13 +12,13 @@ function AllWords({ words, switchScreen, setWords }) {
     <View style={styles.wordCard}>
       <View style={styles.wordInfo}>
         <Text style={styles.wordTitle}>{item.word}</Text>
-        {item.phonetic && <Text style={styles.wordPhonetic}>{item.phonetic}</Text>}
+        {item.phonetics && <Text style={styles.wordPhonetic}>{item.phonetics}</Text>}
         {item.partOfSpeech && <Text style={styles.wordPos}>{item.partOfSpeech}</Text>}
-        <Text style={styles.wordDefinition}>{item.explanation || item.definition}</Text>
+        <Text style={styles.wordDefinition}>{item.meaning || item.explanation}</Text>
       </View>
       <View style={styles.actions}>
-        {item.sound && (
-          <TouchableOpacity onPress={() => playSound(item.sound)} style={styles.iconButton}>
+        {item.audio && (
+          <TouchableOpacity onPress={() => playSound(item.audio)} style={styles.iconButton}>
             <Ionicons name="play-outline" size={24} color="#007AFF" />
           </TouchableOpacity>
         )}
